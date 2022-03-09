@@ -42,6 +42,12 @@ f_checkpoint = os.path.join("model","skyAR_coord_resnet50.pt")
 
 import requests
 
+URL = "https://docs.google.com/uc?export=download"
+
+session = requests.Session()
+
+response = session.get(URL, params = { 'id' : id }, stream = True)
+st.write(response)
 
 def get_confirm_token(response):
     for key, value in response.cookies.items():
@@ -72,9 +78,10 @@ def download_file_from_google_drive(id, destination):
 
     save_response_content(response, destination) 
 
-if not os.path.exists(f_checkpoint):
-    with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
-        download_file_from_google_drive(os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init"), f_checkpoint)
+# if not os.path.exists(f_checkpoint):
+#     with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
+#         download_file_from_google_drive(os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init"), f_checkpoint)
+
 # Si colab et drive monté
 # musdb_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","musdb18")
 # unets_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","UNet")
