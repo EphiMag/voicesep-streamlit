@@ -3,3 +3,4 @@ git+https://github.com/MickaRiv/ProjetDatascientest-VoiceSeparator
 pydub
 openunmix
 google-api-python-client
+oauth2client
