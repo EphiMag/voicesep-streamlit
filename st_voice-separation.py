@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import print_function
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -33,7 +34,6 @@ musdb_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest"
 # unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","UNet")
 
 ##################################################################################
-from __future__ import print_function
 
 from googleapiclient import discovery
 from httplib2 import Http
