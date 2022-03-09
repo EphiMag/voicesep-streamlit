@@ -36,59 +36,10 @@ mon_modele = os.path.join("MyDrive","Projet Datascientest","UNet","model_2022010
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
 gdd.download_file_from_google_drive(file_id='1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4',
-                                    dest_path='./data/mnist.zip',
+                                    dest_path=os.path.join("UNet","model_20220101_init"),
                                     unzip=True)
 
 st.write(listdir('data'))
-
-#url = ' google drive sharing link'
-url = 'https://drive.google.com/drive/folders/1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4?usp=sharing'
-path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-#st.write(listdir('https://drive.google.com/drive'))
-unets_path = "UNet"
-    
-f_checkpoint = os.path.join("model","skyAR_coord_resnet50.pt")
-
-import requests
-
-URL = "https://docs.google.com/uc?export=download"
-
-session = requests.Session()
-
-response = session.get(URL, params = { 'id' : os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init") }, stream = True)
-
-def get_confirm_token(response):
-    for key, value in response.cookies.items():
-        if key.startswith('download_warning'):
-            return value
-
-    return None
-
-def save_response_content(response, destination):
-    CHUNK_SIZE = 32768
-
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(CHUNK_SIZE):
-            if chunk: # filter out keep-alive new chunks
-                f.write(chunk)
-
-def download_file_from_google_drive(id, destination):
-    URL = "https://docs.google.com/uc?export=download"
-
-    session = requests.Session()
-
-    response = session.get(URL, params = { 'id' : id }, stream = True)
-    token = get_confirm_token(response)
-
-    if token:
-        params = { 'id' : id, 'confirm' : token }
-        response = session.get(URL, params = params, stream = True)
-
-    save_response_content(response, destination) 
-
-# if not os.path.exists(f_checkpoint):
-#     with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
-#         download_file_from_google_drive(os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init"), f_checkpoint)
 
 # Si colab et drive monté
 # musdb_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","musdb18")
