@@ -39,7 +39,7 @@ gdd.download_file_from_google_drive(file_id='1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4',
                                     dest_path=os.path.join("UNet","model_20220101_init"),
                                     unzip=True)
 
-st.write(listdir('data'))
+st.write(listdir('.'))
 
 # Si colab et drive monté
 # musdb_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","musdb18")
