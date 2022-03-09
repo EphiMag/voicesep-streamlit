@@ -92,6 +92,7 @@ if quel_modele=="UNet 8 kHz" or quel_modele=="UNet 4 kHz":
         nfreq = 256
 
     model_path = os.path.join(unets_path,model)
+    model_path = os.path.join("UNet","model_20220101_init")
     
     if model=="model_20220202_quick" or model=="model_20220127_long_train_sd+ds":
         unet = load_model(model_path, custom_objects={'myloss': myloss})
