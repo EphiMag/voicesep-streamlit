@@ -2,5 +2,4 @@ tensorflow
 git+https://github.com/MickaRiv/ProjetDatascientest-VoiceSeparator
 pydub
 openunmix
-googledrivedownloader
 googleapiclient
