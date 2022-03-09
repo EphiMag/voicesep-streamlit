@@ -6,3 +6,4 @@ openunmix
 google-api-python-client
 oauth2client
 ffmpeg-python
+matplotlib
