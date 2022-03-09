@@ -35,54 +35,13 @@ musdb_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest"
 
 ##################################################################################
 
-from googleapiclient import discovery
-from httplib2 import Http
-from oauth2client import file, client, tools
-import os, io
-
-SCOPES = 'https://www.googleapis.com/auth/drive'
-store = file.Storage('storage.json')
-creds = store.get()
-if not creds or creds.invalid:
-    flow = client.flow_from_clientsecrets(st.secrets["gcp_service_account"], SCOPES)
-    creds = tools.run_flow(flow, store)
-DRIVE = discovery.build('drive', 'v3', http=creds.authorize(Http()))
-
-def retaining_folder_structure(query,filepath):
-    results = DRIVE.files().list(fields="nextPageToken, files(id, name, kind, mimeType)",q=query).execute()
-    items = results.get('files', [])
-    for item in items:
-        #print(item['name'])
-        if item['mimeType']=='application/vnd.google-apps.folder':
-            fold=item['name']
-            path=filepath+'/'+fold
-            if os.path.isdir(path):
-                retaining_folder_structure("'%s' in parents"%(item['id']),path)
-            else:
-                os.mkdir(path)
-                retaining_folder_structure("'%s' in parents"%(item['id']),path)
-        else:
-            request = DRIVE.files().get_media(fileId=item['id'])
-            fh = io.BytesIO()
-            downloader = MediaIoBaseDownload(fh, request)
-            done = False
-            while done is False:
-                status, done = downloader.next_chunk()
-                print("Download %d%%." % int(status.progress() * 100))
-            path=filepath+'/'+item['name']
-            #print(path)
-            with io.open(path,'wb') as f:
-                fh.seek(0)
-                f.write(fh.read())
-
-retaining_folder_structure("1-HVh-1trYflfvIj_Ss8-sw6xMnZnloYL",'mon_model')
 
 # mon_modele = os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init")
-# from google_drive_downloader import GoogleDriveDownloader as gdd
+from google_drive_downloader import GoogleDriveDownloader as gdd
 
-# gdd.download_file_from_google_drive(file_id='1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4',
-#                                     dest_path=os.path.join("UNet","model_20220101_init"),
-#                                     unzip=True)
+gdd.download_file_from_google_drive(file_id='1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4',
+                                    dest_path=os.path.join("UNet","model_20220101_init"),
+                                    unzip=True)
 
 st.write(listdir('.'))
 
