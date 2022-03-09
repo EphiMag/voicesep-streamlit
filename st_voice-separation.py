@@ -30,7 +30,7 @@ def get_all_dataviz_csv():
 def myloss(y_true, y_pred):
   return tf.math.reduce_sum(abs(y_true - y_pred)) + abs(tf.math.reduce_sum(y_true) - tf.math.reduce_sum(y_pred))
 
-musdb_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","musdb18")
+musdb_path = os.path.join(".","musdb18")
 # unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","UNet")
 
 ##################################################################################
