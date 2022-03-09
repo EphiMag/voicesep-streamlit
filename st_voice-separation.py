@@ -41,7 +41,7 @@ unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest"
 #%% dev de la sidebar avec chargement du modèle --------------------------
 from PIL import Image
 image = Image.open("image.jpg")
-image = Image.open("https://github.com/EphiMag/voicesep-streamlit/blob/d2d2e0f2031111764079d6ab3e874be5ba09691f/image.jpg")
+image = Image.open("https://github.com/EphiMag/voicesep-streamlit/main/image.jpg")
 st.sidebar.image(image, caption='Ceci est une image')
 
 # pour lister tous les modèles
