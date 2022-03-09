@@ -32,14 +32,14 @@ def myloss(y_true, y_pred):
 musdb_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","musdb18")
 # unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","UNet")
 
-
+mon_modele = os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init")
 from google_drive_downloader import GoogleDriveDownloader as gdd
 
 gdd.download_file_from_google_drive(file_id='1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4',
                                     dest_path='./data/mnist.zip',
                                     unzip=True)
 
-st.write(listdir())
+st.write(listdir('data'))
 
 #url = ' google drive sharing link'
 url = 'https://drive.google.com/drive/folders/1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4?usp=sharing'
