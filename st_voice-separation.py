@@ -30,7 +30,13 @@ def myloss(y_true, y_pred):
   return tf.math.reduce_sum(abs(y_true - y_pred)) + abs(tf.math.reduce_sum(y_true) - tf.math.reduce_sum(y_pred))
 
 musdb_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","musdb18")
-unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","UNet")
+# unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","UNet")
+
+#url = ' google drive sharing link'
+#path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
+drive = 'https://drive.google.com/drive/folders/1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4?usp=sharing'
+st.write(listdir(drive))
+unets_path = "UNet"
 
 # Si colab et drive monté
 # musdb_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","musdb18")
