@@ -31,6 +31,14 @@ def myloss(y_true, y_pred):
   return tf.math.reduce_sum(abs(y_true - y_pred)) + abs(tf.math.reduce_sum(y_true) - tf.math.reduce_sum(y_pred))
 
 musdb_path = os.path.join(".","musdb18")
+
+@st.cache(allow_output_mutation=True)
+def cache_UNetModel(mix,model,freq,window_length,hop_length,patch_size,nfreq):
+    return UNetModel(mix,model,freq,window_length,hop_length,patch_size,nfreq)
+
+@st.cache(allow_output_mutation=True)
+def cache_DemucsModel(signal,modele,in_path,out_path):
+    return DemucsModel(signal,modele,in_path,out_path)
 # unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","UNet")
 
 ##################################################################################
@@ -168,9 +176,10 @@ if stem_ou_mp3 == 'stem':
         "**La voix prédite :**"
         signal = data["mix"]
         if quel_modele=="UNet 8 kHz" or quel_modele=="UNet 4 kHz":
-            separator = UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
+            separator = cache_UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
         elif quel_modele=="Demucs":
-            separator = DemucsModel(signal,"mdx_extra_q",in_path,out_path)
+            separator = cache_DemucsModel(signal,"mdx_extra_q",in_path,out_path)
+            st.write(listdir('tmp/output'))
         elif quel_modele=="Spleeter":
             separator = SpleeterModel(signal,in_path,out_path)
         elif quel_modele=="OpenUnmix":
@@ -218,11 +227,10 @@ else:
             signal = nussl.AudioSignal(uploaded_file.name)
             
             if quel_modele=="UNet 8 kHz" or quel_modele=="UNet 4 kHz":
-                separator = UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
+                separator = cache_UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
             elif quel_modele=="Demucs":
-                separator = DemucsModel(signal,"mdx_extra_q",in_path,out_path)
+                separator = cache_DemucsModel(signal,"mdx_extra_q",in_path,out_path)
                 st.write(listdir('tmp'))
-                st.write(listdir('tmp/output'))
             elif quel_modele=="Spleeter":
                 separator = SpleeterModel(signal,in_path,out_path)
             elif quel_modele=="OpenUnmix":
