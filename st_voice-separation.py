@@ -37,12 +37,15 @@ musdb_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest"
 
 
 # mon_modele = os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init")
-from google_drive_downloader import GoogleDriveDownloader as gdd
+# from google_drive_downloader import GoogleDriveDownloader as gdd
 
-gdd.download_file_from_google_drive(file_id='1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4',
-                                    dest_path=os.path.join("UNet","model_20220101_init"),
-                                    unzip=True)
+# gdd.download_file_from_google_drive(file_id='1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4',
+#                                     dest_path=os.path.join("UNet","model_20220101_init"),
+#                                     unzip=True)
 
+st.write(listdir('.'))
+os.system('rm -rf UNet')
+os.system('rm -rf data')
 st.write(listdir('.'))
 
 # Si colab et drive monté
