@@ -221,6 +221,8 @@ else:
                 separator = UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
             elif quel_modele=="Demucs":
                 separator = DemucsModel(signal,"mdx_extra_q",in_path,out_path)
+                st.write(listdir('tmp'))
+                st.write(listdir('tmp/output'))
             elif quel_modele=="Spleeter":
                 separator = SpleeterModel(signal,in_path,out_path)
             elif quel_modele=="OpenUnmix":
