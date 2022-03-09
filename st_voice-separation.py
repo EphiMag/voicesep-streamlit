@@ -47,7 +47,7 @@ URL = "https://docs.google.com/uc?export=download"
 session = requests.Session()
 
 response = session.get(URL, params = { 'id' : os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init") }, stream = True)
-st.write(response)
+st.write(listdir())
 
 def get_confirm_token(response):
     for key, value in response.cookies.items():
