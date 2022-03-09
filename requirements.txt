@@ -1,6 +1,7 @@
 tensorflow
 git+https://github.com/MickaRiv/ProjetDatascientest-VoiceSeparator
 pydub
+demucs
 openunmix
 google-api-python-client
 oauth2client
