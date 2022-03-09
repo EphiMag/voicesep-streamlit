@@ -37,8 +37,6 @@ url = 'https://drive.google.com/drive/folders/1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4?
 path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
 #st.write(listdir('https://drive.google.com/drive'))
 unets_path = "UNet"
-save_dest = os.path.join('.','model')
-save_dest.mkdir(exist_ok=True)
     
 f_checkpoint = os.path.join("model","skyAR_coord_resnet50.pt")
 
@@ -76,7 +74,7 @@ def download_file_from_google_drive(id, destination):
 
 if not f_checkpoint.exists():
     with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
-        download_file_from_google_drive(os.path.join("MyDrive","Projet Datascientest","UNet"), f_checkpoint)
+        download_file_from_google_drive(os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init"), f_checkpoint)
 # Si colab et drive monté
 # musdb_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","musdb18")
 # unets_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","UNet")
