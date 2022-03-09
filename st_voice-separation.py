@@ -72,7 +72,7 @@ def download_file_from_google_drive(id, destination):
 
     save_response_content(response, destination) 
 
-if not os.path.exist(f_checkpoint):
+if not os.path.exists(f_checkpoint):
     with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
         download_file_from_google_drive(os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init"), f_checkpoint)
 # Si colab et drive monté
