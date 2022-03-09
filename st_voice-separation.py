@@ -33,7 +33,7 @@ musdb_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest"
 # unets_path = os.path.join('C:\\Users','magla','Documents',"Projet_DataScientest","UNet")
 
 #url = ' google drive sharing link'
-drive = 'https://drive.google.com/drive/folders/1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4?usp=sharing'
+url = 'https://drive.google.com/drive/folders/1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4?usp=sharing'
 path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
 st.write(listdir(path))
 unets_path = "UNet"
