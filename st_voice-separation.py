@@ -39,7 +39,6 @@ from googleapiclient import discovery
 from httplib2 import Http
 from oauth2client import file, client, tools
 import os, io
-from apiclient.http import MediaFileUpload, MediaIoBaseDownload
 
 SCOPES = 'https://www.googleapis.com/auth/drive'
 store = file.Storage('storage.json')
@@ -76,7 +75,7 @@ def retaining_folder_structure(query,filepath):
                 fh.seek(0)
                 f.write(fh.read())
 
-retaining_folder_structure("1DeebFFTfj8dVK2wKhnfIKHg-iAGuEMR4",'mon_model')
+retaining_folder_structure("1-HVh-1trYflfvIj_Ss8-sw6xMnZnloYL",'mon_model')
 
 # mon_modele = os.path.join("MyDrive","Projet Datascientest","UNet","model_20220101_init")
 # from google_drive_downloader import GoogleDriveDownloader as gdd
