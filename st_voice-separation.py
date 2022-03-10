@@ -231,14 +231,12 @@ else:
             st.pyplot(fig)
         
         with col2:
-           "**La voix prédite :**"
+            "**La voix prédite :**"
             if quel_modele != "Demucs":
                 signal = nussl.AudioSignal(uploaded_file.name)
             
                 if quel_modele=="UNet 8 kHz" or quel_modele=="UNet 4 kHz":
                     separator = cache_UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
-                # elif quel_modele=="Demucs":
-                #     separator = cache_DemucsModel(signal,"mdx_extra_q",in_path,out_path)
                 elif quel_modele=="Spleeter":
                     separator = SpleeterModel(signal,in_path,out_path)
                 elif quel_modele=="OpenUnmix":
