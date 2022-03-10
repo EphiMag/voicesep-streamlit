@@ -1,5 +1,0 @@
-nussl
-demucs
-openunmix
-git+https://github.com/MickaRiv/ProjetDatascientest-VoiceSeparator
-
