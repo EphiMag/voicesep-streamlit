@@ -51,7 +51,9 @@ def cache_DemucsModel(signal,modele,in_path,out_path):
 #                                     dest_path=os.path.join("UNet","model_20220101_init"),
 #                                     unzip=True)
 
+os.system("rm requirements_colab.txt")
 st.write(listdir('.'))
+st.write(os.system("pip list"))
 
 # Si colab et drive monté
 # musdb_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","musdb18")
@@ -175,11 +177,7 @@ if stem_ou_mp3 == 'stem':
         if quel_modele=="UNet 8 kHz" or quel_modele=="UNet 4 kHz":
             separator = cache_UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
         elif quel_modele=="Demucs":
-            st.write(listdir('tmp'))
-            st.write(listdir('tmp/output'))
             separator = cache_DemucsModel(signal,"mdx_extra_q",in_path,out_path)
-            st.write(listdir('tmp'))
-            st.write(listdir('tmp/output'))
         elif quel_modele=="Spleeter":
             separator = SpleeterModel(signal,in_path,out_path)
         elif quel_modele=="OpenUnmix":
@@ -230,7 +228,6 @@ else:
                 separator = cache_UNetModel(signal,unet,freq,window_length,hop_length,patch_size,nfreq)
             elif quel_modele=="Demucs":
                 separator = cache_DemucsModel(signal,"mdx_extra_q",in_path,out_path)
-                st.write(listdir('tmp'))
             elif quel_modele=="Spleeter":
                 separator = SpleeterModel(signal,in_path,out_path)
             elif quel_modele=="OpenUnmix":
