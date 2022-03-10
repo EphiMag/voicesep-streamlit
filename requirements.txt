@@ -1,7 +1,7 @@
 nussl
-git+https://github.com/MickaRiv/ProjetDatascientest-VoiceSeparator
 demucs
 openunmix
+git+https://github.com/MickaRiv/ProjetDatascientest-VoiceSeparator
 tensorflow
 pydub
 ffmpeg-python
