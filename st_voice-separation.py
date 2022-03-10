@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
