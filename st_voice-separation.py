@@ -115,7 +115,7 @@ if quel_modele=="UNet 8 kHz" or quel_modele=="UNet 4 kHz":
         model=="model_20220207_aug=8_4k" :
         unet = load_model(model_path)
     
-elif quel_modele=="Demucs" or quel_modele=="Spleeter" or quel_modele=="OpenUnmix" or quel_modele=="Repet":
+elif quel_modele=="Spleeter" or quel_modele=="OpenUnmix" or quel_modele=="Repet":
     freq = 16384
     tmp_path = "tmp"
     if not os.path.exists(tmp_path):
@@ -126,6 +126,11 @@ elif quel_modele=="Demucs" or quel_modele=="Spleeter" or quel_modele=="OpenUnmix
     out_path = os.path.join(tmp_path,"output")
     if not os.path.exists(out_path):
         os.mkdir(out_path)
+        
+    
+elif quel_modele=="Demucs":
+    freq = 32768
+
 #%% ------------------------------------------
 stem_ou_mp3 = st.selectbox(
       'Format de la musique à traiter : stem de la base musdb18 ou mp3/wav de votre choix :',
