@@ -51,7 +51,7 @@ def cache_DemucsModel(signal,modele,in_path,out_path):
 #                                     dest_path=os.path.join("UNet","model_20220101_init"),
 #                                     unzip=True)
 
-os.system("rm requirements_colab.txt")
+os.system("rm requirements_colab.txt requirements.txt packages.txt")
 st.write(listdir('.'))
 st.write(os.system("pip list"))
 
