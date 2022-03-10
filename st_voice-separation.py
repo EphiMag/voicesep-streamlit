@@ -53,7 +53,6 @@ def cache_DemucsModel(signal,modele,in_path,out_path):
 #os.system("rm requirements.txt packages.txt")
 st.write(listdir('.'))
 st.write(os.system("pip list"))
-st.write(os.system("conda list"))
 
 # Si colab et drive monté
 # musdb_path = os.path.join("/content","drive","MyDrive","Projet Datascientest","musdb18")
